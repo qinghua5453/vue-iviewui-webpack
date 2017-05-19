@@ -57,6 +57,9 @@ module.exports = {
 	    publicPath: config.dev.publicPath,
   },
   resolve:{
+      alias: {
+            'vue': 'vue/dist/vue.js'
+      },
       extensions:['.js','.json','.css','.jpg','.png']
   },
   module: {

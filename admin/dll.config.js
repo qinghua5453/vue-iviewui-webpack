@@ -1,11 +1,12 @@
 // dll.config.js
 var webpack = require('webpack')
 var path    = require('path')
+
 var vendors =[
    'vue',
    'vue-router',
    'vuex',
-   'iview'
+   'iview'  // iview 依赖比较大 占据整个打包文件的75%大小
 ]
 var plugins = [
     new webpack.DllPlugin({
@@ -22,6 +23,11 @@ var plugins = [
 ]
 
 module.exports = {
+	resolve:{
+      alias: {
+            'vue': 'vue/dist/vue.js'
+      }
+    },
 	entry:{
 		 vendors:vendors
 	},

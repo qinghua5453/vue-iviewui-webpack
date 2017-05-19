@@ -1,11 +1,10 @@
 // index.js
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import cultivarRouter from './cultivar/index'
+import enterpriseRouter from './enterprise/index'
+import recycleRouter    from './recycle/index'
 Vue.use(Router)
-
-// home
-const Home = resolve => require(['../components/layout/index.vue'], resolve)
 
 const router = new Router({
 	mode: 'history',
@@ -18,12 +17,12 @@ const router = new Router({
 	},
 
 	routes: [
-	    // home
-		{ 
-			path: '/admin/home/', 
-			component: Home, 
-		},
-		{ path: '*', component: Home}
+		// cultivarRouter
+		...cultivarRouter,
+		// enterpriseRouter
+		...enterpriseRouter,
+		// recycleRouter
+		...recycleRouter
 	]
 })
 

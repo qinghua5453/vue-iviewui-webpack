@@ -6,12 +6,14 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>欣怡美admin</title>
+    <link rel="stylesheet" type="text/css" href="/assets/src/styles.css">
   </head>
   <body>
     <div id='xym'>
     </div>
   </body>
   <script src="/dist/vendors.bundle.js"></script>
+  <script src="/assets/src/main.bundle.js"></script>
   <script type="text/javascript">
      /* 封装ajax函数
        * @param {string}opt.type http连接的方式，包括POST和GET两种方式
@@ -54,24 +56,24 @@
         };
     }
 
-    ajax({
-      method:'GET',
-      url   :'webpack-assets.json',
-      success:function(resp){
-         var resp = JSON.parse(resp)
-         var link = document.createElement('link')
-         link.setAttribute('rel','stylesheet')
-         link.setAttribute('type','text/css')
-         link.setAttribute('href',resp.app.css)
-         var head = document.getElementsByTagName('head')[0]
-         head.appendChild(link)
+    // ajax({
+    //   method:'GET',
+    //   url   :'webpack-assets.json',
+    //   success:function(resp){
+    //      var resp = JSON.parse(resp)
+    //      var link = document.createElement('link')
+    //      link.setAttribute('rel','stylesheet')
+    //      link.setAttribute('type','text/css')
+    //      link.setAttribute('href',resp.app.css)
+    //      var head = document.getElementsByTagName('head')[0]
+    //      head.appendChild(link)
 
-         var script = document.createElement('script')
-         script.setAttribute('type','text/javascript')
-         script.setAttribute('src',resp.app.js)
-         head.appendChild(script)
-      }
-    })
+    //      var script = document.createElement('script')
+    //      script.setAttribute('type','text/javascript')
+    //      script.setAttribute('src',resp.app.js)
+    //      head.appendChild(script)
+    //   }
+    // })
   </script>
   
 </html>
